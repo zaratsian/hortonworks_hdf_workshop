@@ -24,12 +24,16 @@ tar xvf nifi-0.7.0-bin.tar.gz
 <br>Install Zookeeper:
 ```
 sudo apt-get install zookeeperd
+echo "[ INFO ] Zookeeper should start up and be running on port 2181"
 ```
 <br>Install Kafka:
 ```
 wget "http://mirror.cc.columbia.edu/pub/software/apache/kafka/0.10.0.0/kafka_2.10-0.10.0.0.tgz"
 tar xvf kafka_2.10-0.10.0.0.tgz
-# Change memory
+# Adjust JVM Heap Size (if necessary)
+vi kafka_2.10-0.10.0.0/bin/kafka-server-start.sh 
+:s/export KAFKA_HEAP_OPTS="-Xmx1G -Xms1G"/export KAFKA_HEAP_OPTS="-Xmx256M -Xms128M"
+:x
 ```
 <br>Install Storm:
 ```
@@ -39,7 +43,11 @@ tar xvf apache-storm-1.0.2.tar.gz
 <br>Startup Services (Nifi, Kafka, Storm):
 ```
 echo "[ INFO ] Starting NiFi on local port 8080 (18080)
-~/nifi-0.7.0/bin/nifi.sh start
+nohup ~/nifi-0.7.0/bin/nifi.sh start
 echo "[ INFO ] Starting Kafka on port 9092"
-nohup ~/kafka_2.10-0.10.0.0/bin/kafka-server-start.sh ~/kafka_2.10-0.10.0.0/config/server.properties
+nohup ~/kafka_2.10-0.10.0.0/bin/kafka-server-start.sh ~/kafka_2.10-0.10.0.0/config/server.properties &
+#echo "[ INFO ] Starting Storm
+#~/apache-storm-1.0.2/bin/storm nimbus
+#~/apache-storm-1.0.2/bin/storm supervisor
+#~/apache-storm-1.0.2/bin/storm ui
 ```
