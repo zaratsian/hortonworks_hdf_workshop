@@ -1,7 +1,6 @@
 <h3>Hortonworks HDF Config for Vagrant Virtualbox</h3>
 <br>
 <br>Run the following commands to initialize and start vagrant:
-<br>
 ```
 vagrant init
 vagrant box add hashicorp/precise64 #Select Virtualbox
@@ -12,32 +11,35 @@ vi Vagrantfile
 vagrant up
 vagrant ssh
 ```
-<br>
 <br>Update and Install JDK:
 ```
 sudo apt-get update
 sudo apt-get install openjdk-7-jre
 ```
-<br>
 <br>Install NiFi:
 ```
-wget http://www-eu.apache.org/dist/nifi/1.0.0/nifi-1.0.0-bin.tar.gz
-tar xvf nifi-1.0.0-bin.tar.gz
+wget wget https://archive.apache.org/dist/nifi/0.7.0/nifi-0.7.0-bin.tar.gz
+tar xvf nifi-0.7.0-bin.tar.gz
 ```
-<br>
 <br>Install Zookeeper:
 ```
 sudo apt-get install zookeeperd
 ```
-<br>
 <br>Install Kafka:
 ```
 wget "http://mirror.cc.columbia.edu/pub/software/apache/kafka/0.10.0.0/kafka_2.10-0.10.0.0.tgz"
 tar xvf kafka_2.10-0.10.0.0.tgz
+# Change memory
 ```
-<br>
 <br>Install Storm:
 ```
 wget http://www-us.apache.org/dist/storm/apache-storm-1.0.2/apache-storm-1.0.2.tar.gz
 tar xvf apache-storm-1.0.2.tar.gz
+```
+<br>Startup Services (Nifi, Kafka, Storm):
+```
+echo "[ INFO ] Starting NiFi on local port 8080 (18080)
+~/nifi-0.7.0/bin/nifi.sh start
+echo "[ INFO ] Starting Kafka on port 9092"
+nohup ~/kafka_2.10-0.10.0.0/bin/kafka-server-start.sh ~/kafka_2.10-0.10.0.0/config/server.properties
 ```
