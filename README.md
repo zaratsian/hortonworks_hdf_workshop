@@ -1,6 +1,6 @@
 <h3>Hortonworks HDF Config for Vagrant Virtualbox</h3>
 <br>
-<br>Run the following commands to initialize and start vagrant:
+<br>Run the following commands on your local machine to initialize and start vagrant:
 ```
 vagrant init
 vagrant box add hashicorp/precise64 #Select Virtualbox
@@ -8,13 +8,15 @@ vi Vagrantfile
 :%s/config.vm.box = "base"/config.vm.box = "hashicorp\/precise64"
 :%s/# config.vm.network "forwarded_port", guest: 80, host: 8080/config.vm.network "forwarded_port", guest: 80, host: 8080\r  config.vm.network "forwarded_port", guest: 8080, host: 18080\r  config.vm.network "forwarded_port", guest: 9090, host: 19090\r  #EndPortForwarding
 :x
+# Spin up the vagrant image
 vagrant up
+# SSH into vagrant
 vagrant ssh
 ```
 <br>Update and Install JDK:
 ```
 sudo apt-get update
-sudo apt-get install openjdk-7-jre
+sudo apt-get install openjdk-7-jdk
 ```
 <br>Install NiFi:
 ```
