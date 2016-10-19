@@ -1,5 +1,7 @@
 <h3>Hortonworks HDF Config for Vagrant Virtualbox</h3>
 <br>
+<br>Download NiFi from <a href="https://nifi.apache.org/download.html">here</a>
+<br>
 <br>Run the following commands on your local machine to initialize and start vagrant:
 ```
 vagrant init
