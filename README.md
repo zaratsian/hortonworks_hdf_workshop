@@ -2,18 +2,18 @@
 <br>Download NiFi from <a href="https://nifi.apache.org/download.html">here</a>
 <br>
 <br>Run the following commands on your local machine to initialize and start vagrant:
-<code>
+
 vagrant init
 vagrant box add hashicorp/precise64 #Select Virtualbox
 vi Vagrantfile
 :%s/config.vm.box = "base"/config.vm.box = "hashicorp\/precise64"
 :%s/# config.vm.network "forwarded_port", guest: 80, host: 8080/config.vm.network "forwarded_port", guest: 80, host: 8080\r  config.vm.network "forwarded_port", guest: 8080, host: 18080\r  config.vm.network "forwarded_port", guest: 9090, host: 19090\r  #EndPortForwarding
 :x
-# Spin up the vagrant image
+\# Spin up the vagrant image
 vagrant up
-# SSH into vagrant
+\# SSH into vagrant
 vagrant ssh
-</code>
+
 <br>
 <br>Update and Install JDK:
 ```
