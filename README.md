@@ -2,7 +2,7 @@
 <br>Download NiFi from <a href="https://nifi.apache.org/download.html">here</a>
 <br>
 <br>Run the following commands on your local machine to initialize and start vagrant:
-```
+<code>
 vagrant init
 vagrant box add hashicorp/precise64 #Select Virtualbox
 vi Vagrantfile
@@ -13,7 +13,8 @@ vi Vagrantfile
 vagrant up
 # SSH into vagrant
 vagrant ssh
-```
+</code>
+<br>
 <br>Update and Install JDK:
 ```
 sudo apt-get update
