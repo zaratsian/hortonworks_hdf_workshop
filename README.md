@@ -43,6 +43,7 @@ vi kafka_2.10-0.10.0.0/bin/kafka-server-start.sh
 wget http://www-us.apache.org/dist/storm/apache-storm-1.0.2/apache-storm-1.0.2.tar.gz
 tar xvf apache-storm-1.0.2.tar.gz
 ```
+
 <br>Startup Services (Nifi, Kafka, Storm):
 ```
 echo "[ INFO ] Starting NiFi on local port 8080 (18080)
